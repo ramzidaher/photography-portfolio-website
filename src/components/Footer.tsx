@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { InstagramIcon, TwitterIcon } from 'lucide-react';
+import { InstagramIcon } from 'lucide-react';
+import { FaTiktok, FaYoutube } from 'react-icons/fa'; // Importing TikTok and YouTube icons
 
 export const Footer = () => {
   return (
@@ -13,12 +14,18 @@ export const Footer = () => {
               Professional photographer based in Brighton, capturing memories at the seafront and beyond.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/shotsbyramzi/" className="text-gray-400 hover:text-white transition-colors">
                 <InstagramIcon size={20} />
               </a>
-              <a href="https://twitter.com" className="text-gray-400 hover:text-white transition-colors">
-                <TwitterIcon size={20} />
+
+              <a href="https://www.tiktok.com/@shotsbyramzi" className="text-gray-400 hover:text-white transition-colors">
+                <FaTiktok size={20} />
               </a>
+
+              {/* <a href="https://www.youtube.com/channel/yourchannelid" className="text-gray-400 hover:text-white transition-colors">
+                <FaYoutube size={20} />
+              </a> */}
+
             </div>
           </div>
           <div className="grid grid-cols-2 gap-8">
@@ -47,12 +54,7 @@ export const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <a href="mailto:hello@ramzidaher.com" className="text-gray-300 hover:text-white">
-                    hello@ramzidaher.com
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+441234567890" className="text-gray-300 hover:text-white">
-                    +44 123 456 7890
+                    shotsbyramzi@ramzidaher.com
                   </a>
                 </li>
                 <li className="text-gray-300">Brighton, UK</li>

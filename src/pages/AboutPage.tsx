@@ -39,40 +39,26 @@ export const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="https://images.unsplash.com/photo-1603574670812-d24560880210?q=80&w=1000&auto=format&fit=crop" alt="Photographer portrait" className="rounded-lg shadow-lg w-full h-auto" />
+              <img src="https://res.cloudinary.com/druct3maa/image/upload/v1746371254/WhatsApp_Image_2025-05-04_at_4.06.15_PM_jmtebd.jpg?q=80&w=1000&auto=format&fit=crop" alt="Photographer portrait" className="rounded-lg shadow-lg w-full h-auto" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-white">
-                Passionate About Capturing Graduation Moments
-              </h2>
-              <p className="text-gray-300 mb-4">
-                Hi there! I'm a professional photographer specializing in
-                graduation photography in Brighton. With over 5 years of
-                experience capturing special moments, I've developed a keen eye
-                for creating stunning graduation portraits that you'll cherish
-                forever.
-              </p>
-              <p className="text-gray-300 mb-4">
-                As a Sussex University alumnus myself, I understand the
-                significance of graduation day and the iconic Brighton locations
-                that make for perfect backdrops. From the famous Brighton Pier
-                to the picturesque seafront, I know all the best spots to create
-                magical graduation memories.
-              </p>
-              <p className="text-gray-300 mb-6">
-                My approach is relaxed and fun, ensuring you feel comfortable in
-                front of the camera. I believe the best photos come when you're
-                having a great time, so expect plenty of laughs during our
-                session!
-              </p>
+            <h2 className="text-3xl font-bold mb-6 text-white">
+  Passionate About Capturing Special Moments
+</h2>
+<p className="text-gray-300 mb-4">
+  Hi there! I'm a professional photographer based in Brighton. With over 5 years of experience, I've developed a keen eye for capturing stunning portraits and unforgettable moments that you'll cherish forever.
+</p>
+<p className="text-gray-300 mb-4">
+  I specialize in creating unique and personal photoshoots, from beautiful natural settings to iconic city backdrops. Whether it's at the famous Brighton Pier or the picturesque seafront, I know all the best spots to make your photos truly special.
+</p>
+<p className="text-gray-300 mb-6">
+  My approach is relaxed and fun, ensuring you feel comfortable in front of the camera. I believe the best photos come when you're enjoying the moment, so expect plenty of laughs and a great time during our session!
+</p>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center">
                   <CameraIcon size={20} className="text-white mr-2" />
                   <span className="text-white">5+ Years Experience</span>
-                </div>
-                <div className="flex items-center">
-                  <UsersIcon size={20} className="text-white mr-2" />
-                  <span className="text-white">500+ Happy Graduates</span>
                 </div>
                 <div className="flex items-center">
                   <AwardIcon size={20} className="text-white mr-2" />
