@@ -3,22 +3,22 @@ import { Hero } from '../components/Hero';
 import { Gallery } from '../components/Gallery';
 export const HomePage = () => {
   const featuredImages = [{
-    src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369168/DSC09997_e1hq5f.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Graduate portrait'
   }, {
-    src: 'https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369168/ShotsByRamzi-5_lfe3jt.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Graduation ceremony'
   }, {
-    src: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369146/DSC07654_3_cobadh.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Graduate celebration'
   }, {
-    src: 'https://images.unsplash.com/photo-1627556704374-f1f3f8d3eb49?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369139/DSC00014_rr04mh.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Group photo'
   }, {
-    src: 'https://images.unsplash.com/photo-1627556704243-5f0771d90783?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369137/DSC07667_1_zphv7r.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Seaside portrait'
   }, {
-    src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop',
+    src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746369138/DSC08278_1_b2xbvt.jpg?q=80&w=1000&auto=format&fit=crop',
     alt: 'Graduation moment'
   }];
   return <div className="w-full bg-black min-h-screen">

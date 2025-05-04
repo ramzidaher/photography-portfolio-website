@@ -9,7 +9,7 @@ export const Hero = () => {
   };
   return <div className="relative h-screen bg-black flex items-center justify-center">
       <div className="absolute inset-0 bg-cover bg-center opacity-50" style={{
-      backgroundImage: "url('https://images.unsplash.com/photo-1627556704302-624286467c65?q=80&w=1887&auto=format&fit=crop')"
+      backgroundImage: "url('https://res.cloudinary.com/druct3maa/image/upload/v1746369165/DSC03599_p2cjkh.jpg?q=80&w=1887&auto=format&fit=crop')"
     }} />
       <div className="relative z-10 text-center">
         <h1 className="text-5xl md:text-7xl text-white font-light mb-6 tracking-wider">
