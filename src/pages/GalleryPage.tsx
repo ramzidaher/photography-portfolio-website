@@ -1,80 +1,180 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useMemo } from 'react';
 import { Gallery } from '../components/Gallery';
 
-export const GalleryPage = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-  
-  const categories = [{
-    id: 'all',
-    name: 'All Photos'
-  }, {
-    id: 'individual',
-    name: 'Individual'
-  }, {
-    id: 'groups',
-    name: 'Group Photos'
-  }, {
-    id: 'seafront',
-    name: 'Seafront'
-  }, {
-    id: 'pier',
-    name: 'Brighton Pier'
-  }, {
-    id: 'video',
-    name: 'Video Thumbnails'
-  }];
+export const GalleryPage = memo(() => {
+  const [activeCategory, setActiveCategory] = useState<'all' | string>('all');
 
-  const galleryImages = [{
-    src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduate tossing cap',
-    category: 'individual'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduate at seafront',
-    category: 'seafront'
-  }, {
-    src: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduate celebrating',
-    category: 'individual'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704374-f1f3f8d3eb49?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Group of graduates',
-    category: 'groups'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704243-5f0771d90783?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduate portrait',
-    category: 'individual'
-  }, {
-    src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduation ceremony',
-    category: 'groups'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Brighton Pier graduation',
-    category: 'pier'
-  }, {
-    src: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Graduate at sunset',
-    category: 'seafront'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704374-f1f3f8d3eb49?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Video thumbnail',
-    category: 'video'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704243-5f0771d90783?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Brighton beach graduation',
-    category: 'seafront'
-  }, {
-    src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Group celebration',
-    category: 'groups'
-  }, {
-    src: 'https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Video highlight',
-    category: 'video'
-  }];
-  
-  const filteredImages = activeCategory === 'all' ? galleryImages : galleryImages.filter(image => image.category === activeCategory);
+  // Define filter buttons
+  const categories = useMemo(
+    () => [
+      { id: 'all', name: 'All Photos' },
+      { id: 'individual', name: 'Individual' },
+      { id: 'groups', name: 'Group Photos' },
+      { id: 'seafront', name: 'Seafront' },
+      { id: 'pier', name: 'Brighton Pier' },
+      { id: 'street', name: 'Street Photography' },
+      { id: 'landscape', name: 'Landscape' },
+    ],
+    []
+  );
+
+  // Image data with categories as arrays
+  const galleryImages = useMemo(
+    () => [
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448425/DSC07607_1_onjoxv.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Brighton Seafront Pedal Board',
+        categories: ['landscape'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448419/DSC02177_1_jriztj.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Heart Kissing',
+        categories: ['street'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448419/DSC02297_1_o1skjd.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'old people on the marina',
+        categories: ['street'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448419/DSC01775_1_vbztvc.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Couples on the pier',
+        categories: ['groups', 'seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448418/DSC01917_1_gj7ft6.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Couples on the sunset',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448418/DSC00619_1_xp4ko0.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Group of friends on the seafront',
+        categories: ['groups', 'seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448417/DSC03281_1_wubvu3.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Sail Boats Sunset',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448417/DSC03357_yhkf1u.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Pedal boat on the sea',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448416/DSC07694_1_jve5ip.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Woman with headphones on the seafront',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448412/DSC07866_1_byitqx.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Couples wearing hats under Christmas lights',
+        categories: ['street', 'groups'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448411/DSC00618_1_toe7c1.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Seagull flying by the pier',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448410/DSC09968_lweins.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man on the balcony in Jordan',
+        categories: ['street'],
+      },
+      // Newly added images
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448410/DSC00708_1_g4qxjj.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Sun hotting the bird whel flying over the',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448410/DSC02544_kj4dmh.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man with a tattoo on the seafront',
+        categories: ['seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448409/DSC01892_1_snm1dn.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Dog walkign with owners and the sun hittin them from behind them',
+        categories: ['groups', 'seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448408/DSC02271_ba8lju.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Girls standing undeneatht the bus stop',
+        categories: ['individual', 'street'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448402/DSC00603_1_no0k70.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Couples kising in the seafront',
+        categories: ['groups', 'seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448401/DSC01170_hgnodj.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Group of teenage friends in the trainsattion',
+        categories: ['groups'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448403/DSC05897_nzfas2.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Dad kissing daughters forhead',
+        categories: ['groups', 'individual'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448403/DSC00588_1_ncp52l.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Brighton pier games',
+        categories: ['pier', 'seafront'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448403/DSC04523_ynhny1.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Groups of firends in brighton lanes',
+        categories: ['groups', 'street'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448402/DSC06353_1_pqymf4.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'three people geomerty',
+        categories: ['seafront', 'groups'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448395/DSC04806_1_obnt42.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man doing yoga on the beach',
+        categories: ['seafront', 'pier', 'individual'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448396/DSC07624_1_utipwd.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Brighton Pier under the sun',
+        categories: ['seafront', 'landscape', 'pier'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448395/DSC02207_1_qnq6qp.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man sitting on a bench',
+        categories: ['street', 'individual'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448394/DSC06208_1_mhg7x5.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man holding his kids hand on the Pier',
+        categories: ['street', 'pier', 'groups'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448393/DSC08456_aoslqd.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Seagul in the snow',
+        categories: ['street'],
+      },
+      {
+        src: 'https://res.cloudinary.com/druct3maa/image/upload/v1746448393/DSC06254_1_sycceb.jpg?q=80&w=1000&auto=format&fit=crop',
+        alt: 'Man and Women holding there child',
+        categories: ['street', 'pier', 'seafront', 'groups'],
+      },
+
+    ],
+    []
+  );
+
+  // Filter logic
+  const filteredImages = useMemo(
+    () =>
+      activeCategory === 'all'
+        ? galleryImages
+        : galleryImages.filter(img => img.categories.includes(activeCategory)),
+    [activeCategory, galleryImages]
+  );
 
   return (
     <div className="w-full">
@@ -83,8 +183,7 @@ export const GalleryPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Gallery</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Browse through our collection of graduation photos at Brighton's
-            most iconic locations.
+            Browse through our collection of graduation photos at Brighton's most iconic locations.
           </p>
         </div>
       </div>
@@ -93,16 +192,18 @@ export const GalleryPage = () => {
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-2">
-            {categories.map(category => (
+            {categories.map(cat => (
               <button
-                key={category.id}
-                className={`
-                  px-4 py-2 rounded-md transition-colors
-                  ${activeCategory === category.id ? 'bg-black text-white' : 'bg-white text-gray-700 hover:bg-gray-100'}
-                `}
-                onClick={() => setActiveCategory(category.id)}
+                key={cat.id}
+                className={
+                  `px-4 py-2 rounded-md transition-colors
+                  ${activeCategory === cat.id
+                    ? 'bg-black text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'}`
+                }
+                onClick={() => setActiveCategory(cat.id)}
               >
-                {category.name}
+                {cat.name}
               </button>
             ))}
           </div>
@@ -116,19 +217,21 @@ export const GalleryPage = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
+      {/* Call to Action */}
       <section className="py-16 bg-black text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Like What You See?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Book your own graduation photoshoot at Brighton Seafront and create
-            memories that will last a lifetime.
+            Book your own graduation photoshoot at Brighton Seafront and create memories that will last a lifetime.
           </p>
-          <a href="/contact" className="bg-white text-black hover:bg-gray-100 py-3 px-8 rounded-md font-medium text-lg inline-block transition-colors">
+          <a
+            href="/contact"
+            className="bg-white text-black hover:bg-gray-100 py-3 px-8 rounded-md font-medium text-lg inline-block transition-colors"
+          >
             Book Your Session Now
           </a>
         </div>
       </section>
     </div>
   );
-};
+});

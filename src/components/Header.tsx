@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MenuIcon, XIcon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -12,43 +14,65 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-  return <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-sm py-4' : 'bg-transparent py-6'}`}>
+
+  useEffect(() => {
+    // Close menu on route change
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl text-white font-light tracking-wider">
             Ramzi Daher
           </Link>
           <button className="md:hidden text-white" onClick={toggleMenu}>
-            {isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
+            <Menu size={24} />
           </button>
           <nav className="hidden md:flex space-x-12">
             <NavLinks currentPath={location.pathname} />
           </nav>
         </div>
       </div>
-      {isMenuOpen && <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm">
-          <div className="flex flex-col items-center justify-center h-full">
-            <nav className="flex flex-col space-y-8 text-center">
-              <NavLinks mobile onClick={toggleMenu} currentPath={location.pathname} />
-            </nav>
+
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-40">
+          <div className="flex flex-col h-full px-6 pt-8 relative">
+            {/* Close Button */}
+            <button
+              className="absolute top-6 right-6 text-white"
+              onClick={closeMenu}
+              aria-label="Close Menu"
+            >
+              <X size={28} />
+            </button>
+
+            <div className="flex flex-col items-center justify-center h-full">
+              <nav className="flex flex-col space-y-8 text-center">
+                <NavLinks mobile onClick={closeMenu} currentPath={location.pathname} />
+              </nav>
+            </div>
           </div>
-        </div>}
-    </header>;
+        </div>
+      )}
+    </header>
+  );
 };
+
 const NavLinks = ({
   mobile = false,
   onClick = () => {},
   currentPath = ''
 }) => {
-  const linkClasses = `text-white/70 hover:text-white transition-colors duration-300 text-sm tracking-widest uppercase
-    ${mobile ? 'text-2xl' : ''}`;
-  const isActive = (path: string) => {
-    return currentPath === path ? 'text-white' : '';
-  };
-  return <>
+  const linkClasses = `text-white/70 hover:text-white transition-colors duration-300 tracking-widest uppercase ${mobile ? 'text-2xl' : 'text-sm'}`;
+  const isActive = (path: string) => (currentPath === path ? 'text-white' : '');
+
+  return (
+    <>
       <Link to="/gallery" className={`${linkClasses} ${isActive('/gallery')}`} onClick={onClick}>
         Portfolio
       </Link>
@@ -61,5 +85,6 @@ const NavLinks = ({
       <Link to="/contact" className={`${linkClasses} ${isActive('/contact')}`} onClick={onClick}>
         Contact
       </Link>
-    </>;
+    </>
+  );
 };

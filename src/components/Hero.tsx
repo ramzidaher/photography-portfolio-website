@@ -10,13 +10,15 @@ export const Hero = () => {
     });
   };
 
+  const heroImageUrl = "https://res.cloudinary.com/druct3maa/image/upload/v1746448425/DSC07607_1_onjoxv.jpg";
+
   return (
     <div className="relative h-screen bg-black flex items-center justify-center">
       <Helmet>
         {/* Preload hero image for faster rendering */}
         <link
           rel="preload"
-          href="https://res.cloudinary.com/druct3maa/image/upload/f_auto,q_auto:best,w_1887/v1746369165/DSC03599_p2cjkh.jpg"
+          href={heroImageUrl}
           as="image"
         />
       </Helmet>
@@ -24,8 +26,7 @@ export const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/druct3maa/image/upload/f_auto,q_auto:best,w_1887/v1746369165/DSC03599_p2cjkh.jpg')",
+          backgroundImage: `url('${heroImageUrl}')`,
         }}
       />
       <div className="relative z-10 text-center">
