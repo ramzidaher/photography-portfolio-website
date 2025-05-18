@@ -4,48 +4,36 @@ import { CheckIcon } from 'lucide-react';
 
 export const PackagesPage = () => {
   const packages = [{
-    title: 'Bronze Package',
-    price: '£50-£75',
+    title: 'Essential Package',
+    price: '£60',
     features: [
       'Best For: Solo Graduates',
-      'Duration: 30-45 minutes',
-      'Number of Photos: 10-15 edited photos',
-      'One location (e.g., Brighton Pier)',
+      'Duration: 45 minutes',
+      '10-15 professionally edited photos',
+      'One iconic location (e.g., Brighton Pier)',
       'Posed and candid shots'
     ]
   }, {
-    title: 'Silver Package',
-    price: '£100-£130',
+    title: 'Signature Package',
+    price: '£120',
     features: [
-      'Best For: Small Groups (2-4 people)',
+      'Best For: Small Groups (up to 4 people)',
       'Duration: 1 hour',
-      'Number of Photos: 20-25 edited photos',
-      'Multiple locations (e.g., Brighton beach, bandstand)',
-      'Group and individual shots'
+      '20-25 professionally edited photos',
+      'Multiple nearby locations',
+      'Group and individual portraits'
     ]
   }, {
-    title: 'Gold Package',
-    price: '£150-£180',
+    title: 'Premier Package',
+    price: '£180',
     features: [
-      'Best For: Medium Groups (5-7 people)',
+      'Best For: Groups & Families (5+ people)',
       'Duration: 1.5 hours',
-      'Number of Photos: 30-40 edited photos',
-      'Multiple locations',
-      'Candid shots, action shots (e.g., throwing caps, walking along the pier)',
-      'Highlight reel (short video of the session)'
+      '30-40 professionally edited photos',
+      'Multiple locations + video highlight (30 sec)',
+      'Candid action shots (e.g., cap toss, walking)'
     ],
     isPopular: true
-  }, {
-    title: 'Platinum Package',
-    price: '£200-£250',
-    features: [
-      'Best For: Larger Groups (8+ people)',
-      'Duration: 2 hours',
-      'Number of Photos: 50+ edited photos',
-      'Extensive coverage with multiple locations',
-      'Group shot, individual portraits, family shots',
-      'Video highlight reel'
-    ]
   }];
 
   const addOns = [{
@@ -75,7 +63,7 @@ export const PackagesPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Photography Packages</h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Choose the perfect package to capture your special moments, whether it's a solo graduation, a small group, or a larger family session.
+            Choose a fixed-price package tailored to your needs—whether solo, with friends, or celebrating with family.
           </p>
         </div>
       </div>
@@ -83,7 +71,7 @@ export const PackagesPage = () => {
       {/* Packages Section */}
       <section className="py-16 mt-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
               <PackageCard
                 key={index}
@@ -97,30 +85,29 @@ export const PackagesPage = () => {
         </div>
       </section>
 
-      {/* Combined What's Included and Additional Services Section */}
+      {/* What's Included & Add-Ons */}
       <section className="py-16 mt-8 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-white">
-              What's Included & Additional Services
-            </h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">What's Included & Additional Services</h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              All our photography packages include these essential services to ensure you have a great experience. You can also customize your package with these additional services to make your photos even more special.
+              Every package includes essentials to ensure a premium experience. Personalize your shoot with optional add-ons.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12 max-w-4xl mx-auto">
-            {/* What's Included */}
-            {['Professional photographer with experience in various photography styles',
-              'Pre-shoot consultation to plan your perfect photos',
-              'Professional editing and color correction',
-              'Choice of iconic locations or studio setup',
-              'Digital delivery of photos',
-              'Basic props available for shoots'].map((item, index) => (
-                <div className="flex items-start text-white" key={index}>
-                  <CheckIcon size={20} className="text-green-500 mt-1 mr-3 flex-shrink-0" />
-                  <p>{item}</p>
-                </div>
-              ))}
+            {[
+              'Professional photographer with creative direction',
+              'Pre-shoot planning and consultation',
+              'High-quality editing and color correction',
+              'Choice of scenic outdoor or studio setup',
+              'Digital delivery of final photos',
+              'Props available upon request'
+            ].map((item, index) => (
+              <div className="flex items-start text-white" key={index}>
+                <CheckIcon size={20} className="text-green-500 mt-1 mr-3 flex-shrink-0" />
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
           <div className="text-center mt-12">
             <h3 className="text-2xl font-semibold text-white mb-4">Additional Services</h3>
