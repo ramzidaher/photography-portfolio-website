@@ -3,58 +3,54 @@ import { PackageCard } from '../components/PackageCard';
 import { CheckIcon } from 'lucide-react';
 
 export const PackagesPage = () => {
-  const packages = [{
-    title: 'Essential Package',
-    price: '£60',
-    features: [
-      'Best For: Solo Graduates',
-      'Duration: 45 minutes',
-      '10-15 professionally edited photos',
-      'One iconic location (e.g., Brighton Pier)',
-      'Posed and candid shots'
-    ]
-  }, {
-    title: 'Signature Package',
-    price: '£120',
-    features: [
-      'Best For: Small Groups (up to 4 people)',
-      'Duration: 1 hour',
-      '20-25 professionally edited photos',
-      'Multiple nearby locations',
-      'Group and individual portraits'
-    ]
-  }, {
-    title: 'Premier Package',
-    price: '£180',
-    features: [
-      'Best For: Groups & Families (5+ people)',
-      'Duration: 1.5 hours',
-      '30-40 professionally edited photos',
-      'Multiple locations + video highlight (30 sec)',
-      'Candid action shots (e.g., cap toss, walking)'
-    ],
-    isPopular: true
-  }];
+  const packages = [
+    {
+      title: 'Essential Package',
+      price: '£70',
+      features: [
+        'Best For: Solo Graduates',
+        'Duration: 40 minutes',
+        '10–12 professionally edited photos',
+        'One iconic location (e.g., Brighton Pier or campus)',
+        'Posed and candid shots',
+        '3-day delivery'
+      ]
+    },
+    {
+      title: 'Signature Package',
+      price: '£150',
+      features: [
+        'Best For: Friends / Small Groups (2–3 people)',
+        'Duration: 1 hour',
+        '25–30 professionally edited photos',
+        'Up to 2 nearby locations',
+        'Solo and group portraits',
+        'Optional cap toss or walking shots',
+        '3-day delivery'
+      ]
+    },
+    {
+      title: 'Premier Package',
+      price: '£200',
+      features: [
+        'Best For: Families or Groups (4–6 people)',
+        'Duration: 1.5 hours',
+        '40–50 edited photos + 30-sec cinematic video',
+        'Multiple nearby locations',
+        'Candid and posed moments (e.g., walking, laughter, confetti)',
+        'Delivered in vertical + landscape formats',
+        '4-day delivery'
+      ],
+      isPopular: true
+    }
+  ];
 
-  const addOns = [{
-    title: 'Additional Digital Photos',
-    price: '£10 each'
-  }, {
-    title: 'Rush Editing (48 hours)',
-    price: '£30'
-  }, {
-    title: 'Additional Hour',
-    price: '£50'
-  }, {
-    title: 'Mini Video Highlight (30 seconds)',
-    price: '£50'
-  }, {
-    title: 'Full Video Coverage (3-5 minutes)',
-    price: '£100'
-  }, {
-    title: 'Photo Album (20 pages)',
-    price: '£70'
-  }];
+  const addOns = [
+    { title: 'Extra Person (per person)', price: '£10' },
+    { title: 'Rush Delivery (24 hours)', price: '£30' },
+    { title: '1-Minute Video Montage', price: '£50' },
+    { title: 'Printed Album (20 pages)', price: '£60' }
+  ];
 
   return (
     <div className="w-full">
