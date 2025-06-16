@@ -6,7 +6,7 @@ export const PackagesPage = () => {
   const packages = [
     {
       title: 'Essential Package',
-      price: '£70',
+      price: '£100',
       features: [
         'Best For: Solo Graduates',
         'Duration: 40 minutes',
