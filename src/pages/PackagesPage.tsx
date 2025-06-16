@@ -61,6 +61,9 @@ export const PackagesPage = () => {
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Select a fixed-rate package tailored to your celebration—solo, friends, or family.
           </p>
+          <p className="text-sm text-gray-500 max-w-2xl mx-auto mt-2">
+            Sessions are scheduled before or after the graduation ceremony due to venue restrictions (no indoor ceremony coverage). Pre-ceremony shoots are available on request.
+          </p>
         </div>
       </header>
 
@@ -108,7 +111,7 @@ export const PackagesPage = () => {
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-semibold text-white mb-6">Optional Add‑Ons</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">Optional Add-Ons</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {addOns.map((addon, i) => (
                 <div key={i} className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 relative">
