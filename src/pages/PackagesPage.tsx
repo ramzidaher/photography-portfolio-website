@@ -10,7 +10,7 @@ export const PackagesPage = () => {
       features: [
         'Best For: Solo Graduates',
         'Duration: 20 minutes',
-        '8 professionally edited studio-style portraits',
+        '10 professionally edited studio-style portraits',
         'Classic headshots and cap-toss',
         '3-day delivery'
       ]
@@ -21,7 +21,7 @@ export const PackagesPage = () => {
       features: [
         'Best For: Graduate + Family',
         'Duration: 30 minutes',
-        '12 professionally edited photos',
+        '15 professionally edited photos',
         'Posed family & individual shots',
         'Post-ceremony or pre-ceremony session',
         '3-day delivery'
