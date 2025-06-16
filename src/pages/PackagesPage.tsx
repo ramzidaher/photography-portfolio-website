@@ -11,34 +11,31 @@ export const PackagesPage = () => {
         'Best For: Solo Graduates',
         'Duration: 30 minutes',
         '10 professionally edited photos',
-        'One iconic location (e.g., Brighton Pier or campus)',
         'Posed and candid shots',
         '3-day delivery'
       ]
     },
     {
-      title: 'Signature Package',
-      price: '£150',
+      title: 'Group Package',
+      price: '£160',
       features: [
-        'Best For: Friends / Small Groups (2–3 people)',
+        'Best For: Groups up to 6 people',
         'Duration: 1 hour',
-        '25 professionally edited photos',
-        'Up to 2 nearby locations',
-        'Solo, group & candid portraits',
-        'Optional cap toss or walking shots',
+        '20–25 professionally edited photos',
+        'Perfect for post-ceremony celebrations',
+        'Candid & posed group shots',
         '3-day delivery'
       ]
     },
     {
-      title: 'Premier Package',
-      price: '£200',
+      title: 'Premium Package',
+      price: '£250',
       features: [
-        'Best For: Families or Larger Groups (4–6 people)',
+        'Best For: Large Groups & Extended Coverage',
         'Duration: 2 hours',
         '50+ professionally edited photos',
-        'Prints package (5×7 & 8×10) + digital album',
-        'Multiple scenic locations',
-        'Candid & posed moments (confetti, laughter, walking)',
+        '1-minute highlight video',
+        'Candid, posed & cap-toss moments',
         '4-day delivery'
       ],
       isPopular: true
@@ -46,7 +43,6 @@ export const PackagesPage = () => {
   ];
 
   const addOns = [
-    { title: 'Extra Person (per person)', price: '£10' },
     { title: 'Rush Delivery (24 hours)', price: '£30' },
     { title: 'Printed Album (20 pages)', price: '£60' },
     { title: '1-Minute Video Montage', price: '£50' }
@@ -59,10 +55,10 @@ export const PackagesPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Graduation Photography Packages</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Select a fixed-rate package tailored to your celebration—solo, friends, or family.
+            Choose from solo, group, or premium coverage—no hidden fees, no extra person charges.
           </p>
           <p className="text-sm text-gray-500 max-w-2xl mx-auto mt-2">
-            Sessions are scheduled before or after the graduation ceremony due to venue restrictions (no indoor ceremony coverage). Pre-ceremony shoots are available on request.
+            All sessions take place after the ceremony—capture the real celebration. Pre-ceremony shoots available on request.
           </p>
         </div>
       </header>
@@ -90,18 +86,16 @@ export const PackagesPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Included in Every Package</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              All shoots include expert direction, high-end editing, and seamless digital delivery.
+              Professional direction, expert editing, and quick digital delivery come standard.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12 max-w-4xl mx-auto mb-12">
             {[
-              'Professional photographer with creative guidance',
-              'Pre-shoot consultation and planning',
+              'Creative guidance from shoot planning to final edit',
               'High-resolution editing & color correction',
-              'Choice of scenic outdoor or studio backdrop',
-              'Digital delivery via online gallery',
-              'Props available upon request'
+              'Online gallery delivery',
+              'Props and light direction upon request'
             ].map((item, i) => (
               <div className="flex items-start text-white" key={i}>
                 <CheckIcon size={20} className="text-green-400 mt-1 mr-3 flex-shrink-0" />
